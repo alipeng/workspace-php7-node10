@@ -11,8 +11,8 @@ RUN set -ex; \
 		ca-certificates \
 		wget && \
 	wget -O /etc/apt/trusted.gpg.d/php.gpg https://mirror.xtom.com.hk/sury/php/apt.gpg && \
-	sh -c 'echo "deb https://mirror.xtom.com.hk/sury/php/ stretch main" > /etc/apt/sources.list.d/php.list' && \
-	apt update \
+	echo "deb https://mirror.xtom.com.hk/sury/php/ stretch main" > /etc/apt/sources.list.d/php.list && \
+	apt update; \
 	apt install -y \
 		php7.2-cli \
 		php7.2-mysql \
@@ -23,7 +23,7 @@ RUN set -ex; \
 		php7.2-xmlrpc \
 		php7.2-zip \
 		php7.2-opcache && \
-	rm -rf /var/lib/apt/lists/* \
+	rm -rf /var/lib/apt/lists/* && \
 	npm install -g pm
 
 # Application environment
