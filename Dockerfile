@@ -25,7 +25,8 @@ RUN set -ex; \
 		php7.2-opcache && \
 	rm -rf /var/lib/apt/lists/* && \
 	npm install -g pm2 && \
-	usermod -u 82 www-data
+	usermod -u 82 www-data &&\
+	groupmod -g 83 www-data
 
 # Application environment
 WORKDIR /var/www
